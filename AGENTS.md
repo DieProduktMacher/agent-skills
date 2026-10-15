@@ -14,6 +14,16 @@ Performs a senior-level code review on staged/changed code before opening a PR. 
 
 **Triggers:** "Prepare my PR", "Review before I push", "Run pre-PR checks", "Review my changes like a senior engineer"
 
+### web-accessibility-audit
+
+Jurisdiction-aware web accessibility (a11y) auditing for websites and web apps. Determines which laws
+apply (BFSG/BITV 2.0, EAA/WAD via EN 301 549, Section 508, ADA, etc.), maps them to the correct WCAG
+version/level, runs automated + manual + assistive-technology checks, and produces a conformance
+report with prioritised remediation TODOs and an accessibility statement.
+
+**Triggers:** "Audit this site for accessibility", "Is this WCAG/BFSG/EAA compliant?", "accessibility
+statement", "a11y", "BITV", "color contrast", "keyboard navigation", "screen reader"
+
 ## Creating a New Skill
 
 ### Directory Structure
