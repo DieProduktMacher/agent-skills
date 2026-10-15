@@ -45,14 +45,22 @@ node run-axe.mjs https://example.com https://example.com/checkout
 
 **pa11y-ci (CI gate with thresholds):**
 ```bash
-npx pa11y-ci --config .pa11yci.json
+npm run pa11y   # runs `pa11y-ci --config .pa11yci.json`
 ```
+Edit `.pa11yci.json`'s `urls` to point at the page(s) under test.
 
 **Lighthouse (quick score, subset of axe):**
 ```bash
 npx lighthouse https://example.com --only-categories=accessibility \
   --output=json --output-path=./lighthouse-a11y.json --quiet --chrome-flags="--headless"
 ```
+
+**Lighthouse CI (threshold-gated, config-driven):**
+```bash
+npm run lhci   # runs `lhci autorun --config=./lighthouserc.json`
+```
+Edit `lighthouserc.json`'s `collect.url` to point at the page(s) under test; `assert.assertions`
+fails the run below the configured accessibility score (defaults to 100%, i.e. zero violations).
 
 **Flow scan — a whole user journey, state by state (recommended for critical tasks):**
 ```bash
