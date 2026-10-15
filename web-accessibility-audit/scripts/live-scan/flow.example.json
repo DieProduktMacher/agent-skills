@@ -1,0 +1,24 @@
+{
+  "name": "ticket-purchase",
+  "start": "https://tickets.example.com",
+  "steps": [
+    { "name": "open event page",
+      "actions": [ { "click": "text=Konzerte" }, { "click": "text=Beispiel-Konzert" } ] },
+    { "name": "select ticket",
+      "actions": [ { "click": "[data-testid=ticket-category-1]" }, { "click": "text=In den Warenkorb" } ] },
+    { "name": "cart",
+      "actions": [ { "click": "text=Zur Kasse" }, { "waitFor": "#checkout-form" } ] },
+    { "name": "checkout form — error state",
+      "actions": [ { "click": "button[type=submit]" } ] },
+    { "name": "checkout form — filled",
+      "actions": [
+        { "fill": ["#email", "test@example.com"] },
+        { "fill": ["#firstname", "Erika"] },
+        { "fill": ["#lastname", "Mustermann"] },
+        { "check": "#agb" } ] },
+    { "name": "payment step",
+      "actions": [ { "click": "text=Weiter zur Zahlung" }, { "waitFor": "[data-testid=payment-methods]" } ] },
+    { "name": "confirmation",
+      "actions": [ { "click": "text=Jetzt kaufen" }, { "waitFor": "text=Bestellbestätigung" } ] }
+  ]
+}
